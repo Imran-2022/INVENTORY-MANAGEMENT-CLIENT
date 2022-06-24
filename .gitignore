@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+_steps.txt
+Test
 /.pnp
 .pnp.js
 
