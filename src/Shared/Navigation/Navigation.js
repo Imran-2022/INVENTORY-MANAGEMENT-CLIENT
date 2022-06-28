@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import "./Navigation.css"
 import { GrVirtualMachine } from 'react-icons/gr';
-import { FaUserCircle } from 'react-icons/fa';
 import { Dropdown } from 'react-bootstrap';
 const Navigation = () => {
     const [click, setClick] = React.useState(false);
@@ -13,13 +12,13 @@ const Navigation = () => {
             <div className={click ? "main-container" : ""} onClick={() => Close()} />
             <nav className="navbar " onClick={e => e.stopPropagation()}>
                 <div className="nav-container">
-                    <NavLink exact to="/" className="nav-logo nav-links"><GrVirtualMachine /> MACHINERY</NavLink>
+                    <NavLink  to="/" className="nav-logo nav-links"><GrVirtualMachine /> MACHINERY</NavLink>
                     <ul className={click ? "nav-menu active" : "nav-menu"}>
                         <li className="nav-item">
                             <NavLink
-                                exact
+                                
                                 to="/"
-                                activeClassName="active"
+                                activeclassname="active"
                                 className="nav-links"
                                 onClick={click ? handleClick : null}
                             >
@@ -28,9 +27,9 @@ const Navigation = () => {
                         </li>
                         <li className="nav-item">
                             <NavLink
-                                exact
+                                
                                 to="/blogs"
-                                activeClassName="active"
+                                activeclassname="active"
                                 className="nav-links"
                                 onClick={click ? handleClick : null}
                             >
@@ -39,9 +38,9 @@ const Navigation = () => {
                         </li>
                         <li className="nav-item">
                             <NavLink
-                                exact
+                                
                                 to="/about-us"
-                                activeClassName="active"
+                                activeclassname="active"
                                 className="nav-links"
                                 onClick={click ? handleClick : null}
                             >

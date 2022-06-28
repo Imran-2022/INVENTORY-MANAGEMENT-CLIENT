@@ -16,7 +16,7 @@ const PageRoutes = () => {
         <div>
             <Navigation />
             <Routes>
-                <Route exact path="/about-us" element={<AboutUs />} />
+                <Route  path="/about-us" element={<AboutUs />} />
                 <Route path="/blogs" element={<Blogs />} />
                 <Route path="/" element={<Main />} />
                 <Route path="/manage-items" element={< ManageItems/>} />
