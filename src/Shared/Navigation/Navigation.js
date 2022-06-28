@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./Navigation.css"
 import { GrVirtualMachine } from 'react-icons/gr';
 import { FaUserCircle } from 'react-icons/fa';
+import { Dropdown } from 'react-bootstrap';
 const Navigation = () => {
     const [click, setClick] = React.useState(false);
     const handleClick = () => setClick(!click);
@@ -12,7 +13,7 @@ const Navigation = () => {
             <div className={click ? "main-container" : ""} onClick={() => Close()} />
             <nav className="navbar " onClick={e => e.stopPropagation()}>
                 <div className="nav-container">
-                    <NavLink exact to="/" className="nav-logo nav-links"><GrVirtualMachine/> MACHINERY</NavLink>
+                    <NavLink exact to="/" className="nav-logo nav-links"><GrVirtualMachine /> MACHINERY</NavLink>
                     <ul className={click ? "nav-menu active" : "nav-menu"}>
                         <li className="nav-item">
                             <NavLink
@@ -48,13 +49,17 @@ const Navigation = () => {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <span
-                                activeClassName="active"
-                                className="nav-links"
-                                onClick={click ? handleClick : null}
-                            >
-                                <FaUserCircle />
-                            </span>
+                            <Dropdown >
+                                <Dropdown.Toggle variant="warning" id="dropdown-basic">
+                                    MANAGE-INVENTORY
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item><NavLink className='nav-linkss' onClick={click ? handleClick : null} to="manage-items">MANAGE ITEMS</NavLink></Dropdown.Item>
+                                    <Dropdown.Item><NavLink className='nav-linkss' onClick={click ? handleClick : null} to="add-items">ADD ITEMS</NavLink></Dropdown.Item>
+                                    <Dropdown.Item><NavLink className='nav-linkss' onClick={click ? handleClick : null} to="my-items">MY ITEMS</NavLink></Dropdown.Item>
+                                    <Dropdown.Item> <NavLink className='nav-linkss' to="signOut">SIGN OUT</NavLink></Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
                         </li>
                     </ul>
                     <div className="nav-icon" onClick={handleClick}>
