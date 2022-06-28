@@ -1,10 +1,10 @@
 import React from 'react'
-import Routes from './Routes';
+import PageRoutes from './PageRoutes';
 
 function App() {
   return (
     <>
-      <Routes/>
+      <PageRoutes/>
     </>
   );
 }

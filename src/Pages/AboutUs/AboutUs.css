@@ -1,0 +1,14 @@
+.about-header{
+    height: 50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("https://assets-global.website-files.com/600fe6e1ff56087409a9f096/602b9f28bb288a2b7eea1217_Inventory-Reduction-Strategies-For-Excess-Or-Slow-Moving-Stock.jpg");
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color:#fff;
+  }
+  
+  
+  .about-col{
+    flex-basis: 48%;
+  }
