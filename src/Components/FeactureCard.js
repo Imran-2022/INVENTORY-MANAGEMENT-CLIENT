@@ -1,9 +1,10 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const FeactureCard = ({ data }) => {
-    console.log(data);
-    const { description, img, price, quantity, supplierEmail, supplierName, title } = data;
+    // console.log(data);
+    const { description, img, price, quantity, supplierName, title,_id } = data;
     return (
         <Card style={{ width: '25rem' }}>
 
@@ -27,7 +28,7 @@ const FeactureCard = ({ data }) => {
                         <p>{supplierName}</p>
                     </div>
                 </div>
-                <Button variant="primary mt-1 w-100">MANAGE INVENTORY</Button>
+                <Link to={`/update/${_id}`}>Update</Link>
             </Card.Body>
         </Card>
     );

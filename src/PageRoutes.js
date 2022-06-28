@@ -11,6 +11,7 @@ import Main from './Pages/Main/Main';
 import ManageItems from './Pages/ManageItems/ManageItems';
 import MyItems from './Pages/MyItems/MyItems';
 import AddItems from './Pages/AddItems/AddItems';
+import UpdateItems from './Pages/UpdateItems/UpdateItems';
 const PageRoutes = () => {
     return (
         <div>
@@ -22,6 +23,7 @@ const PageRoutes = () => {
                 <Route path="/manage-items" element={< ManageItems/>} />
                 <Route path="/my-items" element={<MyItems />} />
                 <Route path="/add-items" element={<AddItems />} />
+                <Route path="/update/:abc" element={<UpdateItems />} />
             </Routes>
             <Footer />
         </div>
