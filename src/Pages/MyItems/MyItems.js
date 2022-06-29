@@ -1,9 +1,12 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { userContext } from '../../Context/Context';
 import './MyItems.css'
 const MyItems = () => {
-    const email = 'devil@gmail.com';
+    const [loggedInUser, setLoggedInUser] = useContext(userContext)
+
+    const email = loggedInUser.email;
     const [myItems, setMyItems] = useState([]);
     useEffect(() => {
         axios.get(`http://localhost:8080/api/products/?email=${email}`)

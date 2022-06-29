@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div className='home'>
             <div className='home-details'>
-                <h1>WE ARE HERE <br/> TO HELP YOU</h1>
+                <h1 style={{fontSize:'70px', fontWeight:'100'}}>WE ARE HERE <br/> TO HELP YOU</h1>
                 <p>DEAR Dealership, Warehousing</p>
                 <Link to="/add-items" className='btn btn-outline-primary'>Let's start !</Link>
             </div>

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./AddItems.css"
 import axios from 'axios'
 import { useForm } from "react-hook-form";
+import { userContext } from '../../Context/Context';
 const AddItems = () => {
-
+    const [loggedInUser, setLoggedInUser] = useContext(userContext)
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         axios.post('http://localhost:8080/api/products', data)
@@ -14,20 +15,12 @@ const AddItems = () => {
                 }
             })
     }
-    const handleDelete = () => {
-        axios.delete('http://localhost:8080/api/products')
-        .then(res => {
-            if (res.data) {
-                alert("data added successfully !!!");
-                reset()
-            }
-        })
-    }
+
 
     return (
         <div className=" w-75 m-auto mb-5 ">
             <p className='text-center py-5 fs-1' >Add Inventory</p>
-            <button onClick={handleDelete}>delete all </button>
+          
             <form className="p-5 mb-5 rounded w-50 m-auto admin-form-adds admin-form-add d-flex flex-column justify-content-center align-content-center" onSubmit={handleSubmit(onSubmit)}>
 
                 <input placeholder="Product Name" {...register("title", { required: true })} />
@@ -43,10 +36,10 @@ const AddItems = () => {
                 <input placeholder="Image url"   {...register("img", { required: true })} autoComplete="off" />
                 {errors.img && <small className="text-end">This field is required</small>}
 
-                <input placeholder="Supplier Name" {...register("supplierName", { required: true })} />
+                <input defaultValue={loggedInUser.displayName} {...register("supplierName", { required: true })} readOnly/>
                 {errors.supplierName && <small className="text-end">This field is required</small>}
 
-                <input type="email" placeholder="Supplier Email" {...register("supplierEmail", { required: true })} />
+                <input type="email" defaultValue={loggedInUser.email} {...register("supplierEmail", { required: true })} readOnly/>
                 {errors.supplierEmail && <small className="text-end">This field is required</small>}
 
                 <textarea placeholder="Description"  {...register("description", { required: true })} rows="3" />

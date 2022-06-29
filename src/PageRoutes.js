@@ -12,6 +12,9 @@ import ManageItems from './Pages/ManageItems/ManageItems';
 import MyItems from './Pages/MyItems/MyItems';
 import AddItems from './Pages/AddItems/AddItems';
 import UpdateItems from './Pages/UpdateItems/UpdateItems';
+import SignIn from './Auth/SignIn/SignIn';
+import SignUp from './Auth/SignIn/SignUp';
+import PrivateRoute from './Auth/Firebase/PrivateRoute';
 const PageRoutes = () => {
     return (
         <div>
@@ -20,10 +23,12 @@ const PageRoutes = () => {
                 <Route  path="/about-us" element={<AboutUs />} />
                 <Route path="/blogs" element={<Blogs />} />
                 <Route path="/" element={<Main />} />
-                <Route path="/manage-items" element={< ManageItems/>} />
-                <Route path="/my-items" element={<MyItems />} />
-                <Route path="/add-items" element={<AddItems />} />
-                <Route path="/update/:abc" element={<UpdateItems />} />
+                <Route path="/manage-items" element={<PrivateRoute>< ManageItems/></PrivateRoute> } />
+                <Route path="/my-items" element={<PrivateRoute><MyItems /></PrivateRoute>} />
+                <Route path="/add-items" element={<PrivateRoute><AddItems /></PrivateRoute>} />
+                <Route path="/update/:abc" element={<PrivateRoute><UpdateItems /></PrivateRoute>} />
+                <Route path="/sign-in" element={<SignIn />} />
+                <Route path="/sign-up" element={<SignUp />} />
             </Routes>
             <Footer />
         </div>

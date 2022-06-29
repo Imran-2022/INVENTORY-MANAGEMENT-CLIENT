@@ -1,11 +1,12 @@
 import React from 'react'
+import Context from './Context/Context';
 import PageRoutes from './PageRoutes';
 
 function App() {
   return (
-    <>
-      <PageRoutes/>
-    </>
+    <Context>
+      <PageRoutes />
+    </Context>
   );
 }
 
