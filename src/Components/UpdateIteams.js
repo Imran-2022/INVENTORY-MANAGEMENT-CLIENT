@@ -12,10 +12,10 @@ const UpdateIteams = ({ dt }) => {
         e.preventDefault();
         let restockValue = e.target.stock.value;
         const newQuantity = parseInt(restockValue) + parseInt(quantity);
-        axios.put(`http://localhost:8080/api/products/${_id}`, {
+        axios.put(`https://machinary.herokuapp.com/api/products/${_id}`, {
             newQuantity,
-          })
-          .then((res) => alert(res.data));
+        })
+            .then((res) => alert(res.data));
         e.target.reset();
         console.log(newQuantity);
     };
@@ -25,18 +25,18 @@ const UpdateIteams = ({ dt }) => {
     const handleDelivered = (id) => {
         const newQuantity = parseInt(quantity) - 1;
         axios
-          .put(`http://localhost:8080/api/products/${id}`, {
-            newQuantity,
-          })
-          .then((res) => alert('updated'));
-      };
-    
+            .put(`https://machinary.herokuapp.com/api/products/${id}`, {
+                newQuantity,
+            })
+            .then((res) => alert('updated'));
+    };
+
 
     return (
         <div>
             <div className='d-flex w-75 m-auto gap-5 p-5'>
                 <div>
-                    <img style={{height:'300px'}} src={img} alt="" />
+                    <img style={{ height: '300px' }} src={img} alt="" />
                 </div>
                 <div className='productDetails'>
                     <div className='d-flex justify-content-between align-items-center gap-4'>
@@ -73,7 +73,7 @@ const UpdateIteams = ({ dt }) => {
                             <button className='btn btn-primary' type='submit'>Restock</button></form>
                     </div>
                     <div>
-                        <button className='btn btn-primary' onClick={()=>handleDelivered(_id)}>delivered</button>
+                        <button className='btn btn-primary' onClick={() => handleDelivered(_id)}>delivered</button>
                     </div>
                 </div>
 

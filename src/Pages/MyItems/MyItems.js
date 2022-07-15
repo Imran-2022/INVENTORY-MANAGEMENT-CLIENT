@@ -9,7 +9,7 @@ const MyItems = () => {
     const email = loggedInUser.email;
     const [myItems, setMyItems] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:8080/api/products/?email=${email}`)
+        axios.get(`https://machinary.herokuapp.com/api/products/?email=${email}`)
             .then(data => {
                 setMyItems(data.data)
             })
@@ -19,7 +19,7 @@ const MyItems = () => {
     // handle single delete -> 
 
     const handleSigleDelete = (dt) => {
-        axios.delete(`http://localhost:8080/api/products/${dt}`)
+        axios.delete(`https://machinary.herokuapp.com/api/products/${dt}`)
             .then((result) => {
                 if (result.data.deletedCount) {
                     alert("delected")

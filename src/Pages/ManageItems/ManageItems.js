@@ -7,7 +7,7 @@ const ManageItems = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/products')
+        axios.get('https://machinary.herokuapp.com/api/products')
             .then(dt => {
                 setProducts(dt.data);
             })
@@ -15,7 +15,7 @@ const ManageItems = () => {
     // handle single delete -> 
 
     const handleSigleDelete = (dt) => {
-        axios.delete(`http://localhost:8080/api/products/${dt}`)
+        axios.delete(`https://machinary.herokuapp.com/api/products/${dt}`)
             .then((result) => {
                 if (result.data.deletedCount) {
                     alert("delected")
@@ -25,13 +25,13 @@ const ManageItems = () => {
     }
 
     const handleDelete = () => {
-        axios.delete('http://localhost:8080/api/products')
-        .then(res => {
-            if (res.data) {
-                alert("data delected !!!");
-                setProducts([])
-            }
-        })
+        axios.delete('https://machinary.herokuapp.com/api/products')
+            .then(res => {
+                if (res.data) {
+                    alert("data delected !!!");
+                    setProducts([])
+                }
+            })
     }
     return (
         <div className='manageItems'>
@@ -39,7 +39,7 @@ const ManageItems = () => {
             <div className='d-flex gap-4 align-items-center'>
                 <p>Inventories: {products.length}</p>
                 <Link to='/add-items' className='btn btn-primary'>add New</Link>
-                <button onClick={handleDelete}  className='btn btn-primary'>delete all </button>
+                <button onClick={handleDelete} className='btn btn-primary'>delete all </button>
             </div>
             <div className='py-5'>
                 <table>

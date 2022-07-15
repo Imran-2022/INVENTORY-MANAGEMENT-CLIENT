@@ -5,11 +5,11 @@ import FeactureCard from '../../Components/FeactureCard';
 import { Link } from 'react-router-dom';
 
 const FeactureInventory = () => {
-    // url http://localhost:8080/api/products
+    // url https://machinary.herokuapp.com/api/products
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/products')
+        axios.get('https://machinary.herokuapp.com/api/products')
             .then(dt => {
                 setProducts(dt.data);
             })
@@ -20,10 +20,10 @@ const FeactureInventory = () => {
             <h2>Featured MACHINER</h2>
             <div className='py-5 d-flex flex-wrap gap-3 flex-wrap justify-content-center align-items-center'>
                 {
-                    products && products.map(dt=><FeactureCard data={dt}/>)
+                    products && products.map(dt => <FeactureCard data={dt} />)
                 }
             </div>
-            <Link to="/manage-items"  className='btn btn-primary mb-5'>MANAGE INVENTORY</Link>
+            <Link to="/manage-items" className='btn btn-primary mb-5'>MANAGE INVENTORY</Link>
         </div>
     );
 };

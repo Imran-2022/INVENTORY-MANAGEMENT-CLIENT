@@ -7,19 +7,19 @@ const UpdateItems = () => {
     const { abc } = useParams()
     const [singleProudct, setSingleProduct] = useState()
 
-    useEffect(()=>{
-        axios.get(`http://localhost:8080/api/products/${abc}`)
-        .then(dt => {
-            setSingleProduct(dt?.data);
-        })
-    },[abc])  
-    
+    useEffect(() => {
+        axios.get(`https://machinary.herokuapp.com/api/products/${abc}`)
+            .then(dt => {
+                setSingleProduct(dt?.data);
+            })
+    }, [abc])
+
 
     return (
         <div>
             <p className='text-center py-5'>Product Details {abc}</p>
             {
-                singleProudct && singleProudct.map(dt=><UpdateIteams dt={dt}/>)
+                singleProudct && singleProudct.map(dt => <UpdateIteams dt={dt} />)
             }
         </div>
     );
