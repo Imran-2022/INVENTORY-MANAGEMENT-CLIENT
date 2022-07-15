@@ -1,0 +1,8 @@
+.ourPartners{
+    min-height: 40vh;
+    width: 100%;
+    margin: auto;
+}
+.ourPartners img{
+    height: 150px;
+}
