@@ -36,7 +36,7 @@ const UpdateIteams = ({ dt }) => {
         <div>
             <div className='d-flex w-75 m-auto gap-5 p-5'>
                 <div>
-                    <img src={img} alt="" />
+                    <img style={{height:'300px'}} src={img} alt="" />
                 </div>
                 <div className='productDetails'>
                     <div className='d-flex justify-content-between align-items-center gap-4'>

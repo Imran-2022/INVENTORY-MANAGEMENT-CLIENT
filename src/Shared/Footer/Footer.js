@@ -4,7 +4,7 @@ import "./Footer.css"
 const Footer = () => {
     const date = new Date().getFullYear();
     return (
-        <div className="footer flex-row-reverse" style={{minHeight:"35vh",display:"flex",justifyContent:"center", alignItems:"center"}}>
+        <div className="footer d-flex flex-wrap  flex-row-reverse" style={{minHeight:"35vh",display:"flex",justifyContent:"center", alignItems:"center"}}>
             
             <div className="footer-2">
                 <p>&copy;{date}, All Right Reserved by `MACHINERY</p>

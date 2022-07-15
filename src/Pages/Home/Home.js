@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
     return (
-        <div className='home'>
+        <div className='home d-flex flex-wrap'>
             <div className='home-details'>
-                <h1 style={{fontSize:'70px', fontWeight:'100'}}>WE ARE HERE <br/> TO HELP YOU</h1>
-                <p>DEAR Dealership, Warehousing</p>
-                <Link to="/add-items" className='btn btn-outline-primary'>Let's start !</Link>
+                <h2 style={{fontSize:'70px', fontWeight:'100'}}> WELCOME TO  OUR<br/> LARGEST MACHINARY </h2>
+                <h3>WORLD LARGEST INVENTORY MANAGEMENT</h3>
+                <Link to="/add-items" className='btn btn-primary w-50 my-2'>Let's start !</Link>
             </div>
             <div className='home-img'>
-                <img src="Assests/images/home.jpg" alt="" />
+                <img width='100%' src="Assests/images/home.jpg" alt="" />
             </div>
         </div>
     );

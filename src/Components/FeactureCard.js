@@ -13,7 +13,7 @@ const FeactureCard = ({ data }) => {
                 <Card.Text>
                     {description.slice(0, 70)}...
                 </Card.Text>
-                <Card.Img variant="top" src={img} />
+                <Card.Img variant="top" style={{height:'300px'}} src={img} />
                 <div className='py-3 d-flex gap-3 flex-wrap justify-content-around align-items-center'>
                     <div>
                         <p>Quantity</p>

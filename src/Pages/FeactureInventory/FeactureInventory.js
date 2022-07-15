@@ -16,7 +16,7 @@ const FeactureInventory = () => {
     }, [])
 
     return (
-        <div className='Feacture'>
+        <div className='Feacture py-4 pt-5'>
             <h2>Featured MACHINER</h2>
             <div className='py-5 d-flex flex-wrap gap-3 flex-wrap justify-content-center align-items-center'>
                 {
