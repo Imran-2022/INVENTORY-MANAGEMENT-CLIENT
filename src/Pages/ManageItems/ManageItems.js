@@ -38,14 +38,14 @@ const ManageItems = () => {
             })
     }
     return (
-        <div className='manageItems'>
+        <div className='manageItems py-5'>
             <p>Manage Inventory</p>
             <div className='d-flex gap-4 align-items-center'>
                 <p>Inventories: {products.length}</p>
                 <Link to='/add-items' className='btn btn-primary'>add New</Link>
                 <button onClick={handleDelete} className='btn btn-primary'>delete all </button>
             </div>
-            <div className='py-5'>
+            <div style={{minHeight:"70vh"}} className='py-5 d-flex justify-content-center align-items-center'>
                 <table>
                     <thead>
                         <tr >
