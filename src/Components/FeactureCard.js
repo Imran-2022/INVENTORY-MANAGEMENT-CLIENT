@@ -8,13 +8,13 @@ const FeactureCard = ({ data }) => {
     return (
         <Card style={{ maxWidth: '25rem' }}>
 
-            <Card.Body>
+            <Card.Body className='py-3'>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>
                     {description.slice(0, 70)}...
                 </Card.Text>
                 <Card.Img variant="top" style={{ height: '300px' }} className="img-fluid" src={img} />
-                <div className='py-3 d-flex gap-3 flex-wrap justify-content-around align-items-center'>
+                <div className=' d-flex gap-3 flex-wrap justify-content-around align-items-center'>
                     <div>
                         <p>Quantity</p>
                         <p>{quantity}</p>
@@ -28,7 +28,7 @@ const FeactureCard = ({ data }) => {
                         <p>{supplierName}</p>
                     </div>
                 </div>
-                <Link to={`/update/${_id}`}>Update</Link>
+                <div className='text-center'><Link to={`/update/${_id}`} className="btn btn-warning w-100">Update</Link></div>
             </Card.Body>
         </Card>
     );
