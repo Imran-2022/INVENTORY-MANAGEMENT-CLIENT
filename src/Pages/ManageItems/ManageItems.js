@@ -45,7 +45,7 @@ const ManageItems = () => {
                 <Link to='/add-items' className='btn btn-primary'>add New</Link>
                 <button onClick={handleDelete} className='btn btn-primary'>delete all </button>
             </div>
-            <div style={{minHeight:"70vh"}} className=' table-responsive px-2 py-5 d-flex justify-content-center align-items-center'>
+            <div style={{minHeight:"70vh"}} className='ms-5 table-responsive px-2 py-5 d-flex justify-content-center align-items-center'>
                 <table>
                     <thead>
                         <tr >

@@ -104,3 +104,23 @@
     border-bottom: 1px solid;
     padding-left: 0px;
 }
+.add-form{
+  width: 50%;
+}
+.additem{
+  width: 75%;
+}
+.addbtn{
+  font-size: 30px;
+}
+@media screen and (max-width: 560px) {
+  .add-form{
+    width: 100%;
+  }
+  .additem{
+    width: 95%;
+  }
+  .addbtn{
+    font-size: 20px;
+  }
+}
