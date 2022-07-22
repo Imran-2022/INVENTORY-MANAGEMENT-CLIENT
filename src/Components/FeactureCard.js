@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 
 const FeactureCard = ({ data }) => {
     // console.log(data);
-    const { description, img, price, quantity, supplierName, title,_id } = data;
+    const { description, img, price, quantity, supplierName, title, _id } = data;
     return (
-        <Card style={{ width: '25rem' }}>
+        <Card style={{ maxWidth: '25rem' }}>
 
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>
                     {description.slice(0, 70)}...
                 </Card.Text>
-                <Card.Img variant="top" style={{height:'300px'}} src={img} />
+                <Card.Img variant="top" style={{ height: '300px' }} className="img-fluid" src={img} />
                 <div className='py-3 d-flex gap-3 flex-wrap justify-content-around align-items-center'>
                     <div>
                         <p>Quantity</p>

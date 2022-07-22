@@ -6,3 +6,12 @@
     align-items: center;
     gap: 20px;
 }
+.home-d{
+    font-size: 60px;
+}
+
+@media screen and (max-width: 860px) {
+    .home-d {
+        font-size: 30px
+    }
+}

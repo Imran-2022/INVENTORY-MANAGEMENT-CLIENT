@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { NavLink } from "react-router-dom";
 import "./Navigation.css"
-import { GrVirtualMachine } from 'react-icons/gr';
 import { Dropdown } from 'react-bootstrap';
 import { userContext } from '../../Context/Context';
 const Navigation = () => {
@@ -14,7 +13,7 @@ const Navigation = () => {
             <div className={click ? "main-container" : ""} onClick={() => Close()} />
             <nav className="navbar " onClick={e => e.stopPropagation()}>
                 <div className="nav-container">
-                    <NavLink to="/" className="nav-logo nav-links"><GrVirtualMachine /> MACHINERY</NavLink>
+                    <NavLink to="/" className="nav-logo nav-links"> MACHINERY</NavLink>
                     <ul className={click ? "nav-menu active" : "nav-menu"}>
                         <li className="nav-item">
                             <NavLink

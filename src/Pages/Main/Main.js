@@ -6,12 +6,12 @@ import OurPartners from '../OurPartners/OurPartners';
 
 const Main = () => {
     return (
-        <>
+        <div>
             <Home />
             <FeactureInventory />\
             <ExtraFeature/>
             <OurPartners/>
-        </>
+        </div>
     );
 };
 
