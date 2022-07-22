@@ -66,7 +66,7 @@ const SignIn = () => {
             .then((result) => {
                 const user = result.user.providerData[0];
                 const { email, displayName } = user;
-                console.log(email, displayName);
+                localStorage.setItem('authUser', JSON.stringify({ email, displayName }))
                 setLoggedInUser({ email, displayName })
                 if (location.state?.from) {
                     navigate(location.state.from);
