@@ -43,7 +43,7 @@ const MyItems = () => {
                 {
                     myItems.length ? <div className='py-5'>
                         
-                        <div style={{ minHeight: "30vh" }} className='py-5 d-flex justify-content-center align-items-center'>                           
+                        <div style={{ minHeight: "30vh" }} className='table-responsive px-2 py-5 d-flex justify-content-center align-items-center'>                           
                             <table>
                                 <thead>
                                     <tr >
