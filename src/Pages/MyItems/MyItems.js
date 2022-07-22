@@ -79,7 +79,6 @@ const MyItems = () => {
                                             draggable
                                             pauseOnHover
                                         />
-                                        <ToastContainer />
                                     </tbody>
                                 )
                             })

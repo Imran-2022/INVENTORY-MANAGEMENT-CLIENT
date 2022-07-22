@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import "./Sign.css"
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, signInWithPopup, GoogleAuthProvider, sendEmailVerification } from "firebase/auth";
 import initialAuth from '../Firebase/InitializeFirebase';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { userContext } from '../../Context/Context';
 import { useLocation } from 'react-router-dom';
 const SignIn = () => {
@@ -24,17 +25,17 @@ const SignIn = () => {
                 const { email, displayName, emailVerified } = userCredential.user;
 
                 // if (emailVerified) {
-                    localStorage.setItem('authUser', JSON.stringify({ email, displayName }))
-                    setUserData({ email, displayName, emailVerified });
+                localStorage.setItem('authUser', JSON.stringify({ email, displayName }))
+                setUserData({ email, displayName, emailVerified });
 
-                    setLoggedInUser({ email, displayName })
-                    // ...
-                    alert("signIn successful")
-                    if (location.state?.from) {
-                        navigate(location.state.from);
-                    } else {
-                        navigate('/');
-                    }
+                setLoggedInUser({ email, displayName })
+                // ...
+                alert("signIn successful")
+                if (location.state?.from) {
+                    navigate(location.state.from);
+                } else {
+                    navigate('/');
+                }
                 // } else {
                 //     alert(" verify your email ")
                 // }
@@ -50,10 +51,10 @@ const SignIn = () => {
     const handleForgetPassword = () => {
         sendPasswordResetEmail(auth, userEmail.current.value)
             .then(() => {
-                alert("Password reset email sent!")
+                toast("Password reset email sent!")
             })
             .catch((error) => {
-                alert(error.message)
+                toast(error.message)
             });
     }
 
@@ -65,7 +66,7 @@ const SignIn = () => {
             .then((result) => {
                 const user = result.user.providerData[0];
                 const { email, displayName } = user;
-                console.log(email, displayName );
+                console.log(email, displayName);
                 setLoggedInUser({ email, displayName })
                 if (location.state?.from) {
                     navigate(location.state.from);
@@ -102,16 +103,30 @@ const SignIn = () => {
                     </div>
                     <button className="btn btn-primary btn-block">Sign-In</button>
                     <div className='d-flex justify-content-between'>
-                    <p onClick={handleForgetPassword} className="forgot-password text-right py-1 text-danger" style={{ cursor: 'pointer', textDecoration: "underLine" }}>Forgot password?</p>
-                    {auth.currentUser &&<p onClick={sendEmailVari} className="forgot-password text-right py-1 text-danger" style={{ cursor: 'pointer', textDecoration: "underLine" }}>send verification</p>}
+                        <p onClick={handleForgetPassword} className="forgot-password text-right py-1 text-danger" style={{ cursor: 'pointer', textDecoration: "underLine" }}>Forgot password?</p>
+                        {auth.currentUser && <p onClick={sendEmailVari} className="forgot-password text-right py-1 text-danger" style={{ cursor: 'pointer', textDecoration: "underLine" }}>send verification</p>}
                     </div>
                     <p>New there ? sign up first  <Link to="/sign-up">Sign Up</Link> </p>
                     <p className='text-center'>or</p>
                 </form>
+
                 <div className='text-center'>
-                <button className="btn btn-primary btn-block" onClick={handleGoogleSignin}> Sign-In with Google </button>
+                    <button className="btn btn-primary btn-block" onClick={handleGoogleSignin}> Sign-In with Google </button>
 
                 </div>
+
+
+                <ToastContainer
+                    position="top-center"
+                    autoClose={2000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
             </div>
         </>
     );
