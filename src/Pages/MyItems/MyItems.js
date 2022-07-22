@@ -6,7 +6,7 @@ import './MyItems.css'
 const MyItems = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
 
-    const email = loggedInUser.email;
+    const email = loggedInUser.email || JSON.parse(localStorage.getItem('authUser'))?.email;
     const [myItems, setMyItems] = useState([]);
     useEffect(() => {
         axios.get(`https://machinary.herokuapp.com/api/products/?email=${email}`)

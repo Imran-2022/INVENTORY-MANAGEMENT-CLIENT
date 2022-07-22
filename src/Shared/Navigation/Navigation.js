@@ -73,7 +73,7 @@ const Navigation = () => {
                                     className="nav-links"
                                     onClick={click ? handleClick : null}
                                 >
-                                    Sign In
+                                    SIGN IN
                                 </NavLink>
                             </li>
 

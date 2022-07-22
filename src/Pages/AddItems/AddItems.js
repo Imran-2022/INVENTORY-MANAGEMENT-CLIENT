@@ -36,10 +36,10 @@ const AddItems = () => {
                 <input placeholder="Image url"   {...register("img", { required: true })} autoComplete="off" />
                 {errors.img && <small className="text-end">This field is required</small>}
 
-                <input defaultValue={loggedInUser.displayName} {...register("supplierName", { required: true })} readOnly />
+                <input defaultValue={loggedInUser.displayName || JSON.parse(localStorage.getItem('authUser'))?.displayName} {...register("supplierName", { required: true })} readOnly />
                 {errors.supplierName && <small className="text-end">This field is required</small>}
 
-                <input type="email" defaultValue={loggedInUser.email} {...register("supplierEmail", { required: true })} readOnly />
+                <input type="email" defaultValue={loggedInUser.email || JSON.parse(localStorage.getItem('authUser'))?.email} {...register("supplierEmail", { required: true })} readOnly />
                 {errors.supplierEmail && <small className="text-end">This field is required</small>}
 
                 <textarea placeholder="Description"  {...register("description", { required: true })} rows="3" />

@@ -15,6 +15,7 @@ import UpdateItems from './Pages/UpdateItems/UpdateItems';
 import SignIn from './Auth/SignIn/SignIn';
 import SignUp from './Auth/SignIn/SignUp';
 import PrivateRoute from './Auth/Firebase/PrivateRoute';
+import NoFound from './Pages/NoFound/NoFound';
 const PageRoutes = () => {
     return (
         <div>
@@ -29,6 +30,7 @@ const PageRoutes = () => {
                 <Route path="/update/:abc" element={<PrivateRoute><UpdateItems /></PrivateRoute>} />
                 <Route path="/sign-in" element={<SignIn />} />
                 <Route path="/sign-up" element={<SignUp />} />
+                <Route path="*" element={<NoFound />} />
             </Routes>
             <Footer />
         </div>
