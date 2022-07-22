@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { userContext } from '../../Context/Context';
 import './MyItems.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const MyItems = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
 
@@ -19,15 +21,18 @@ const MyItems = () => {
     // handle single delete -> 
 
     const handleSigleDelete = (dt) => {
-        axios.delete(`https://machinary.herokuapp.com/api/products/${dt}`)
-            .then((result) => {
-                if (result.data.deletedCount) {
-                    alert("delected")
-                    setMyItems(myItems.filter(dtt => dtt._id != dt))
-                }
-            });
-    }
+        // eslint-disable-next-line no-restricted-globals
+        if (confirm("are you want to delete ?")) {
+            axios.delete(`https://machinary.herokuapp.com/api/products/${dt}`)
+                .then((result) => {
+                    if (result.data.deletedCount) {
+                        toast("delected")
+                        setMyItems(myItems.filter(dtt => dtt._id != dt))
+                    }
+                });
+        }
 
+    }
     return (
         <div>
             <p className='text-center fs-1 py-5'>my items</p>
@@ -62,8 +67,19 @@ const MyItems = () => {
                                             <td className="text-center">
                                                 <Link to={`/update/${_id}`}>Update</Link> {" "}
                                                 <span onClick={() => handleSigleDelete(_id)}>delete</span></td>
-
                                         </tr>
+                                        <ToastContainer
+                                            position="top-right"
+                                            autoClose={2000}
+                                            hideProgressBar={false}
+                                            newestOnTop={false}
+                                            closeOnClick
+                                            rtl={false}
+                                            pauseOnFocusLoss
+                                            draggable
+                                            pauseOnHover
+                                        />
+                                        <ToastContainer />
                                     </tbody>
                                 )
                             })
@@ -73,10 +89,8 @@ const MyItems = () => {
                     <div className='py-5 m-5'>
                         <p>You Haven't Added Any Items Yet</p>
                         <Link to='/add-items' className='btn btn-primary'>add New</Link>
-
                     </div>
             }
-
 
         </div>
     );
