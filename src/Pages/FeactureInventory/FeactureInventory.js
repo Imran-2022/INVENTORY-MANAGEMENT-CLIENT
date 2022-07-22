@@ -3,6 +3,7 @@ import "./FeactureINventory.css"
 import axios from 'axios'
 import FeactureCard from '../../Components/FeactureCard';
 import { Link } from 'react-router-dom';
+import LoadingButton from '../../Components/LoadingButton';
 
 const FeactureInventory = () => {
     // url https://machinary.herokuapp.com/api/products
@@ -20,10 +21,10 @@ const FeactureInventory = () => {
             <h2>Featured MACHINER</h2>
             <div className='py-5 d-flex flex-wrap gap-3 flex-wrap justify-content-center align-items-center'>
                 {
-                    products && products.map((dt,idx) => <FeactureCard key={idx} data={dt} />)
+                    products.length ? products.map((dt,idx) => <FeactureCard key={idx} data={dt} />):<LoadingButton/>
                 }
             </div>
-            <Link to="/manage-items" className='btn btn-primary mb-5'>MANAGE INVENTORY</Link>
+            {products.length&&<Link to="/manage-items" className='btn btn-primary mb-5'>MANAGE INVENTORY</Link>}
         </div>
     );
 };

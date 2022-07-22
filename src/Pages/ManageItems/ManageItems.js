@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./ManageItems.css"
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import LoadingButton from '../../Components/LoadingButton';
 
 const ManageItems = () => {
     const [products, setProducts] = useState([])
@@ -57,27 +58,27 @@ const ManageItems = () => {
                         </tr>
                     </thead>
                     {
-                        products.map((data, i) => {
-                            const { _id, title, img, quantity, supplierName } = data
-                            // console.log(img)
-                            return (
-                                <tbody key={_id}>
-                                    <tr>
-                                        <td className="text-center">{i + 1}</td>
-                                        <td className="text-center">
-                                            <img width="60px" height="40px" src={img} alt="no images" />
-                                        </td>
-                                        <td className="text-start ps-5">{title}</td>
-                                        <td className="text-center">{quantity}</td>
-                                        <td className="text-center">{supplierName}</td>
-                                        <td className="text-center">
-                                            <Link to={`/update/${_id}`}>Update</Link> {" "}
-                                            <span onClick={() => handleSigleDelete(_id)}>delete</span></td>
+                       products.length? products.map((data, i) => {
+                        const { _id, title, img, quantity, supplierName } = data
+                        // console.log(img)
+                        return (
+                            <tbody key={_id}>
+                                <tr>
+                                    <td className="text-center">{i + 1}</td>
+                                    <td className="text-center">
+                                        <img width="60px" height="40px" src={img} alt="no images" />
+                                    </td>
+                                    <td className="text-start ps-5">{title}</td>
+                                    <td className="text-center">{quantity}</td>
+                                    <td className="text-center">{supplierName}</td>
+                                    <td className="text-center">
+                                        <Link to={`/update/${_id}`}>Update</Link> {" "}
+                                        <span onClick={() => handleSigleDelete(_id)}>delete</span></td>
 
-                                    </tr>
-                                </tbody>
-                            )
-                        })
+                                </tr>
+                            </tbody>
+                        )
+                    }):<LoadingButton/>
                     }
                 </table>
             </div>
