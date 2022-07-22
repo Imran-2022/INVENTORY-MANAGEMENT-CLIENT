@@ -30,7 +30,7 @@ const SignUp = () => {
                     setTimeout(() => {
                         navigate(-1)
 
-                    }, "2500")
+                    }, "3500")
                 })
                 .catch((error) => {
                     const errorMessage = error.message;
@@ -59,7 +59,7 @@ const SignUp = () => {
     const sendEmailVari = () => {
         sendEmailVerification(auth.currentUser)
             .then(() => {
-                alert("verify email sent")
+                alert("signup done & verify email sent")
             });
     }
 

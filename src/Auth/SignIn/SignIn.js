@@ -23,7 +23,7 @@ const SignIn = () => {
                 // Signed in 
                 const { email, displayName, emailVerified } = userCredential.user;
 
-                if (emailVerified) {
+                // if (emailVerified) {
                     localStorage.setItem('authUser', JSON.stringify({ email, displayName }))
                     setUserData({ email, displayName, emailVerified });
 
@@ -35,9 +35,9 @@ const SignIn = () => {
                     } else {
                         navigate('/');
                     }
-                } else {
-                    alert(" verify your email ")
-                }
+                // } else {
+                //     alert(" verify your email ")
+                // }
 
             })
             .catch((error) => {
@@ -66,6 +66,11 @@ const SignIn = () => {
                 const user = result.user.providerData[0];
                 const { email, displayName } = user;
                 setLoggedInUser({ email, displayName })
+                if (location.state?.from) {
+                    navigate(location.state.from);
+                } else {
+                    navigate('/');
+                }
             }).catch((error) => {
                 const errorMessage = error.message;
                 errorMessage && alert(errorMessage);
@@ -95,11 +100,12 @@ const SignIn = () => {
                         <input ref={userPassword} type="password" className="form-control" placeholder="Enter password" />
                     </div>
                     <button className="btn btn-primary btn-block">Sign-In</button>
+                    <div className='d-flex justify-content-between'>
                     <p onClick={handleForgetPassword} className="forgot-password text-right py-1 text-danger" style={{ cursor: 'pointer', textDecoration: "underLine" }}>Forgot password?</p>
-                    <button className="btn btn-primary btn-block" onClick={sendEmailVari}>send verification</button>
-
+                    {auth.currentUser &&<p onClick={sendEmailVari} className="forgot-password text-right py-1 text-danger" style={{ cursor: 'pointer', textDecoration: "underLine" }}>send verification</p>}
+                    </div>
                     <p>New there ? sign up first  <Link to="/sign-up">Sign Up</Link> </p>
-                    <p>or</p>
+                    <p className='text-center'>or</p>
                     <button className="btn btn-primary btn-block" onClick={handleGoogleSignin}> Sign-In with Google </button>
                 </form>
             </div>
