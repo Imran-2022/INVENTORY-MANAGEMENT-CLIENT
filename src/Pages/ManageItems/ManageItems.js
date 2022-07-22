@@ -15,6 +15,8 @@ const ManageItems = () => {
     // handle single delete -> 
 
     const handleSigleDelete = (dt) => {
+        // eslint-disable-next-line no-restricted-globals
+        if (confirm("are you want to delete ?")) {
         axios.delete(`https://machinary.herokuapp.com/api/products/${dt}`)
             .then((result) => {
                 if (result.data.deletedCount) {
@@ -22,6 +24,7 @@ const ManageItems = () => {
                     setProducts(products.filter(dtt => dtt._id != dt))
                 }
             });
+        }
     }
 
     const handleDelete = () => {

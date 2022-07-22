@@ -65,7 +65,7 @@ const SignUp = () => {
 
     return (
         <>
-            <div className=" m-auto w-100 mt-4">
+            <div className=" m-auto w-100 mt-4 py-5">
                 <form className="form-box m-auto d-flex flex-column justify-content-center w-25 " onSubmit={handleSignUp}>
                     <h5>
                         <p><Link to="/">Home</Link> / <Link to="/sign-up">signUp</Link> </p>
