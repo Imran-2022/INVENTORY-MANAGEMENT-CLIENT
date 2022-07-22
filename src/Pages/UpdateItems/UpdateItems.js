@@ -19,7 +19,7 @@ const UpdateItems = () => {
         <div>
             <p className='text-center py-5'>Product Details {abc}</p>
             {
-                singleProudct && singleProudct.map(dt => <UpdateIteams dt={dt} />)
+                singleProudct && singleProudct.map((dt,idx )=> <UpdateIteams key={idx} dt={dt} />)
             }
         </div>
     );

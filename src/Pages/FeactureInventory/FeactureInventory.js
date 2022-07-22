@@ -20,7 +20,7 @@ const FeactureInventory = () => {
             <h2>Featured MACHINER</h2>
             <div className='py-5 d-flex flex-wrap gap-3 flex-wrap justify-content-center align-items-center'>
                 {
-                    products && products.map(dt => <FeactureCard data={dt} />)
+                    products && products.map((dt,idx) => <FeactureCard key={idx} data={dt} />)
                 }
             </div>
             <Link to="/manage-items" className='btn btn-primary mb-5'>MANAGE INVENTORY</Link>

@@ -1,36 +1,40 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Components.css"
 const UpdateIteams = ({ dt }) => {
     const { description, img, price, quantity, supplierEmail, supplierName, title, _id } = dt;
 
-
+    const [quant, setQuant] = useState(parseInt(quantity))
     // handleRestock
 
     const handleRestock = (e) => {
         e.preventDefault();
         let restockValue = e.target.stock.value;
-        const newQuantity = parseInt(restockValue) + parseInt(quantity);
+        const newQuantity = parseInt(restockValue) + parseInt(quant);
         axios.put(`https://machinary.herokuapp.com/api/products/${_id}`, {
             newQuantity,
         })
-            .then((res) => alert(res.data));
+            .then((res) => {
+                    setQuant(newQuantity)
+            });
         e.target.reset();
-        console.log(newQuantity);
     };
 
     // handle Delevered 
 
     const handleDelivered = (id) => {
-        const newQuantity = parseInt(quantity) - 1;
+        const newQuantity = parseInt(quant) - 1;
         axios
             .put(`https://machinary.herokuapp.com/api/products/${id}`, {
                 newQuantity,
             })
-            .then((res) => alert('updated'));
+            .then((res) => {
+                setQuant(newQuantity)
+            });
     };
 
+    const [val,setV]=useState(null)
 
     return (
         <div>
@@ -49,7 +53,7 @@ const UpdateIteams = ({ dt }) => {
                     </div>
                     <div className='d-flex justify-content-between align-items-center gap-4'>
                         <p>Quantity</p>
-                        <p>{quantity}</p>
+                        <p>{quant}</p>
                     </div>
                     <div className='d-flex justify-content-between align-items-center gap-4'>
                         <p>Price</p>
@@ -67,10 +71,12 @@ const UpdateIteams = ({ dt }) => {
                         {description}
                     </div>
                     <div className='d-flex justify-content-between align-items-center gap-4'>
-                        <form action="" onSubmit={handleRestock}><input type="number"
-                            name="stock"
-                            min={0} id="" />
-                            <button className='btn btn-primary' type='submit'>Restock</button></form>
+                        <form action="" onSubmit={handleRestock}>
+                            <input type="number"
+                                name="stock"
+                                min={0}
+                               onChange={(e)=>setV(e.target.value)} />
+                            <button disabled={!val} className='btn btn-primary' type='submit'>Restock</button></form>
                     </div>
                     <div>
                         <button className='btn btn-primary' onClick={() => handleDelivered(_id)}>delivered</button>
