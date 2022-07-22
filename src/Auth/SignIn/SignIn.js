@@ -65,6 +65,7 @@ const SignIn = () => {
             .then((result) => {
                 const user = result.user.providerData[0];
                 const { email, displayName } = user;
+                console.log(email, displayName );
                 setLoggedInUser({ email, displayName })
                 if (location.state?.from) {
                     navigate(location.state.from);
@@ -93,7 +94,7 @@ const SignIn = () => {
                     <h3>Sign In</h3>
                     <div className="form-group">
                         <label>Email address</label>
-                        <input ref={userEmail} type="email" className="form-control" placeholder="Enter email" autoFocus={true} />
+                        <input ref={userEmail} type="email" className="form-control" placeholder="Enter email" />
                     </div>
                     <div className="form-group mb-2">
                         <label>Password</label>
@@ -106,8 +107,11 @@ const SignIn = () => {
                     </div>
                     <p>New there ? sign up first  <Link to="/sign-up">Sign Up</Link> </p>
                     <p className='text-center'>or</p>
-                    <button className="btn btn-primary btn-block" onClick={handleGoogleSignin}> Sign-In with Google </button>
                 </form>
+                <div className='text-center'>
+                <button className="btn btn-primary btn-block" onClick={handleGoogleSignin}> Sign-In with Google </button>
+
+                </div>
             </div>
         </>
     );
